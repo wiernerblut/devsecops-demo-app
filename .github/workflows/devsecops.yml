@@ -31,7 +31,7 @@ jobs:
         args: >
                 -Dsonar.organization=wiernerblut
                 -Dsonar.projectKey=wiernerblut_devsecops-demo-app
-   security:
+  security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
