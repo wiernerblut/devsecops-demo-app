@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: '18'
 
@@ -23,12 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
-    - uses: sonarsource/sonarcloud-github-action@v4
+      uses: actions/checkout@v5
+    - uses: sonarsource/sonarcloud-github-action@v5
+      env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        projectBaseDir: app/src
         args: >
-                -Dsonar.organization=my-organization
-                -Dsonar.projectKey=my-projectkey
-      
-    
+                -Dsonar.organization=wiernerblut
+                -Dsonar.projectKey=wiernerblut_devsecops-demo-app
